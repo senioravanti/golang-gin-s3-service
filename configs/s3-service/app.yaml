@@ -1,0 +1,3 @@
+server:
+  read-timeout: 7s
+  write-timeout: 7s
