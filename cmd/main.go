@@ -15,7 +15,7 @@ import (
 
 func main() {
 	app, err := bootstrap.New(); if err != nil {
-		slog.Error("failed to bootstrap application", err)
+		slog.Error("failed to bootstrap application", "error", err)
 		os.Exit(1)
 	}
 
@@ -26,8 +26,7 @@ func main() {
 
 	go func() {
 		if err := app.Run(); err != nil && err != http.ErrServerClosed {
-			slog.Error("failure", 
-			slog.String("error", err.Error()))
+			slog.Error("failure", "error", err) 
 		}
 	}()
 
